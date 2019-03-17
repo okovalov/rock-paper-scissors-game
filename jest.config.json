@@ -1,0 +1,6 @@
+{
+  "verbose": true,
+  "coverageReporters": ["json", "lcov", "text", "clover", "html"],
+  "setupFiles": ["raf/polyfill", "./src/tests/setupTests.js"],
+  "snapshotSerializers": ["enzyme-to-json/serializer"]
+}
