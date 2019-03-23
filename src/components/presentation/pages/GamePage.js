@@ -21,11 +21,11 @@ export default function GamePage(props) {
       changeGameLoadedStatus(true)
       dispatch({ type: GAME_LOADED, savedGameInfo })
     }
-  })
+  }, [isGameLoaded])
 
   useEffect(() => {
     Storage.set('rsp_gameInfo', JSON.stringify(gameInfo))
-  })
+  }, [gameInfo])
 
   return (
     <Fragment>
