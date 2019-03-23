@@ -18,11 +18,26 @@ export class ExampleCommentsPage extends Component {
     error: ''
   }
 
+  static propTypes = {
+    loading: PropTypes.bool,
+    exampleComments: PropTypes.array,
+    loadExampleComments: PropTypes.func,
+    paginationData: PropTypes.object,
+    setCurrentPage: PropTypes.func.isRequired
+  }
+
+  static defaultProps = {
+    loading: false,
+    exampleComments: undefined,
+    loadExampleComments: undefined,
+    paginationData: undefined
+  }
+
   componentDidMount() {
     const { exampleComments, loadExampleComments } = this.props
 
     if (exampleComments && !exampleComments.length) {
-      let cancelableGetEntity = getCancelable(loadExampleComments())
+      const cancelableGetEntity = getCancelable(loadExampleComments())
 
       cancelableGetEntity.promise
         .then(data => {
@@ -42,16 +57,19 @@ export class ExampleCommentsPage extends Component {
 
   handlePageChanged = data => {
     const { currentPage } = data
-    this.props.setCurrentPage(currentPage)
+    const { setCurrentPage } = this.props
+    setCurrentPage(currentPage)
   }
 
   renderPagination = () => {
+    const { paginationData } = this.props
+
     const {
       currentPage,
       pageLimit,
       totalRecords,
       currentItems
-    } = this.props.paginationData
+    } = paginationData
 
     if (!currentItems || currentItems.length < 1) {
       return <div />
@@ -60,7 +78,7 @@ export class ExampleCommentsPage extends Component {
     return (
       <Pagination
         totalRecords={totalRecords}
-        recordsName={''}
+        recordsName=""
         currentPage={currentPage}
         pageLimit={pageLimit}
         pageNeighbours={1}
@@ -70,8 +88,9 @@ export class ExampleCommentsPage extends Component {
   }
 
   render() {
-    const { loading } = this.props
-    const { currentItems } = this.props.paginationData
+    const { loading, paginationData } = this.props
+    const { error } = this.state
+    const { currentItems } = paginationData
 
     if (loading || !currentItems) {
       return <Loading />
@@ -79,7 +98,7 @@ export class ExampleCommentsPage extends Component {
 
     return (
       <div>
-        {this.state.error && <p>{this.state.error}</p>}
+        {error && <p>{error}</p>}
         <ExampleCommentsList data={currentItems} />
         {this.renderPagination()}
       </div>
@@ -87,12 +106,6 @@ export class ExampleCommentsPage extends Component {
   }
 }
 
-ExampleCommentsPage.propTypes = {
-  loading: PropTypes.bool,
-  exampleComments: PropTypes.array,
-  loadExampleComments: PropTypes.func,
-  paginationData: PropTypes.object
-}
 
 export default connect(
   state => ({

@@ -3,7 +3,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Main from '../components/presentation/layout/Main'
 import HomePage from '../components/presentation/pages/HomePage'
 import NotFoundPage from '../components/presentation/pages/NotFoundPage'
-import ExampleCommentsPage from '../components/presentation/pages/ExampleCommentsPage'
+import ExampleCommentsPageDefault from '../components/presentation/pages/ExampleCommentsPage'
+import GamePageDefault from '../components/presentation/pages/GamePage'
+import ContactUsPageDefault from '../components/presentation/pages/ContactUsPage'
 import { ExtendedRoute } from '../components/common/ExtendedRoute'
 
 const AppRouter = props => (
@@ -12,9 +14,15 @@ const AppRouter = props => (
       <Switch>
         <Route path="/" component={HomePage} exact={true} />
         <ExtendedRoute
-          path="/comments/"
-          exact
-          component={ExampleCommentsPage}
+          path="/game/"
+          exact={true}
+          component={GamePageDefault}
+          authenticated={true}
+        />
+        <ExtendedRoute
+          path="/contact-us/"
+          exact={true}
+          component={ContactUsPageDefault}
           authenticated={true}
         />
         <Route component={NotFoundPage} />

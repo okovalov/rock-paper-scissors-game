@@ -1,9 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { Provider } from 'react-redux'
-import ExampleCommentsPageContainer from '../../../../components/presentation/pages/ExampleCommentsPage'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
+import ExampleCommentsPageContainer from '../../../../components/presentation/pages/ExampleCommentsPage'
 
 const comments = [
   { id: 1, name: 'John', email: 'john@boo.com', body: 'yours' },

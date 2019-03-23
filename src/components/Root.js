@@ -6,9 +6,7 @@ import { MyContext } from '../context/MyContext'
 
 const Root = ({ store }) => (
   <Provider store={store} context={MyContext}>
-    <div>
-      <AppRouter />
-    </div>
+    <AppRouter />
   </Provider>
 )
 

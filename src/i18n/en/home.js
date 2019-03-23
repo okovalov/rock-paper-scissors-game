@@ -1,7 +1,7 @@
 const Home = {
-  HEADER_TITLE: 'BoilerPlate Title',
-  COMPANY_NAME: 'BoilerPlate Company',
-  WELCOME: 'Welcome to BoilerPlate App',
+  HEADER_TITLE: 'TheGame Title',
+  COMPANY_NAME: 'TheGame',
+  WELCOME: 'Welcome to TheGame',
   DATA_EMPTY_LIST: 'No data available'
 }
 

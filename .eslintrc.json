@@ -20,7 +20,9 @@
     "import",
     "async-await",
     "react",
-    "react-native"
+    "react-native",
+    "jest",
+    "react-hooks"
   ],
   "rules": {
     "radix": [2, "as-needed"],
@@ -46,7 +48,7 @@
     "import/imports-first": 0,
     "import/no-extraneous-dependencies": 0,
     "import/no-unresolved": 0,
-    "indent": ["error", 4, { "SwitchCase": 1 }],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "jsx-a11y/href-no-hash": 0,
     "jsx-quotes": 1,
     "keyword-spacing": 1,
@@ -95,7 +97,7 @@
     ],
     "react/jsx-curly-spacing": 2,
     "react/jsx-filename-extension": 0,
-    "react/jsx-indent": [1, 4],
+    "react/jsx-indent": [1, 2],
     "react/jsx-indent-props": 0,
     "react/jsx-key": 1,
     "react/jsx-max-props-per-line": [1, { "maximum": 5 }],
@@ -131,13 +133,21 @@
     "semi-spacing": "off",
     "async-await/space-after-async": 2,
     "async-await/space-after-await": 2,
-    "import/prefer-default-export": 0
+    "import/prefer-default-export": 0,
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "env": {
     "browser": true,
     "es6": true,
     "jquery": true,
     "mocha": true,
-    "node": true
+    "node": true,
+    "jest/globals": true
   }
 }
